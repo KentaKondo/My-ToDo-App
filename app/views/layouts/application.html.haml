@@ -9,11 +9,11 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %link{:href => "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}/
-
   %body
     - if user_signed_in?
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        %a.navbar-brand{:href => "#"} Boards 
+        %div.navbar-brand  
+          = link_to "Boards", root_path,  class: "navbar-brand "
         %button.navbar-toggler{"aria-controls" => "navbarColor03", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarColor03", "data-toggle" => "collapse", :type => "button"}
           = image_tag 'Oval_avatar.png'
           %span.navbar-toggler-icon
@@ -29,20 +29,21 @@
               %a.nav-link{:href => "#"} Pricing
             %li.nav-item
               %a.nav-link{:href => "#"} About
-            %li.nav-item.dropdown
-              %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"} Dropdown
-              .dropdown-menu
-                %a.dropdown-item{:href => "#"} Action
-                %a.dropdown-item{:href => "#"} Another action
-                %a.dropdown-item{:href => "#"} Something else here
-                .dropdown-divider
-                %a.dropdown-item{:href => "#"} Separated link
-          %form.form-inline.my-2.my-lg-0
-            %input.form-control.mr-sm-2{:placeholder => "Search", :type => "text"}/
-            %button.btn.btn-secondary.my-2.my-sm-0{:type => "submit"} Search
+          -#   %li.nav-item.dropdown
+          -#     %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"} Dropdown
+          -#     .dropdown-menu
+          -#       %a.dropdown-item{:href => "#"} Action
+          -#       %a.dropdown-item{:href => "#"} Another action
+          -#       %a.dropdown-item{:href => "#"} Something else here
+          -#       .dropdown-divider
+          -#       %a.dropdown-item{:href => "#"} Separated link
+          -# %form.form-inline.my-2.my-lg-0
+          -#   %input.form-control.mr-sm-2{:placeholder => "Search", :type => "text"}/
+          -#   %button.btn.btn-secondary.my-2.my-sm-0{:type => "submit"} Search
     - else 
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        %a.navbar-brand{:href => "#"} Boards   
+        %div.navbar-brand  
+          = link_to "Boards", root_path,  class: "navbar-brand "   
         .text-right
           = button_to 'Login', new_user_session_path, class: "btn btn-primary"
 
@@ -87,7 +88,8 @@
     -#         = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
     -#   - else 
     -#     = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'    
-    %p.notice= notice
-    %p.alert= alert
-
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
     = yield

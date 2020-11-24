@@ -1,4 +1,6 @@
 class Board < ApplicationRecord
   belongs_to :user, dependent: :destroy
-end
 
+  validates :title, presence: true
+  validates :content, presence: true
+end
