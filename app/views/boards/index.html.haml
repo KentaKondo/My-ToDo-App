@@ -1,15 +1,16 @@
 .container
   %h1 ALL Boards
   - @boards.each do |board|
-    .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
-      .card-header 
-        .text-right
-          %i.fas.fa-book
-      .card-body
-        %h4.card-title 
-          = board.title
-        %p.card-text 
-          = truncate(board.content)
+    = link_to board_path(board) do
+      .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
+        .card-header 
+          .text-right
+            %i.fas.fa-book
+        .card-body
+          %h4.card-title 
+            = board.title
+          %p.card-text 
+            = truncate(board.content)
 
 
 
