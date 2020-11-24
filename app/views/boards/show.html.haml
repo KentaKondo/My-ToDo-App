@@ -1,19 +1,24 @@
-.article
-  -# - if @article.eyecatch.attached?
-    .article_image
-      = image_tag @article.eyecatch
-  %h1.article_title= @article.title
-  .article_detail
-    -# = image_tag @article.user.avatar_image
-    -# %div
-    -#   %p= @article.author_name
-    -#   %p= @article.display_created_at
-    -# - if user_signed_in? && current_user.has_written?(@article)
-    -#   .article_detail_actions
-    -#     .dropdown
-    -#       = image_tag 'actions.svg', class: 'dropbtn'
-    -#       .dropdown-content.mini
-    -#         = link_to '編集する', edit_article_path(@article)
-    -#         = link_to '削除する', article_path(@article), data: { method: 'delete', confirm: '本当に削除してもいいですか' }
-  .article_content
-    = @article.content
+-# .board
+-#   %h1.board_title= @board.title
+-#   .text-right
+-#     %i.fas.fa-book
+-#   .board_content
+-#     = @board.content
+.card.mb-3
+  .card-body
+    %h5.card-title
+      = @board.title
+    .text-right
+      .article_detail_actions
+        .dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content.mini
+            編集
+            削除
+  %svg.d-block.user-select-none{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "200", :preserveaspectratio => "xMidYMid slice", :role => "img", :style => "font-size:1.125rem;text-anchor:middle", :viewbox => "0 0 318 180", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+    %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+    %text{:dy => ".3em", :fill => "#dee2e6", :x => "50%", :y => "50%"} Image cap
+  .card-body
+    %p.card-text 
+      = @board.content
+

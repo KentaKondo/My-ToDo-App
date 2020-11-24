@@ -1,15 +1,25 @@
 .container
   %h1 ALL Boards
+  = link_to new_board_path do
+    .card.border-info.mb-3{:style => "max-width: 20rem;"}
+      .card-body
+        ＋ Add New Board
   - @boards.each do |board|
     .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
       .card-header 
         .text-right
-          %i.fas.fa-book
-      .card-body
-        %h4.card-title 
-          = board.title
-        %p.card-text 
-          = truncate(board.content)
+          .article_detail_actions
+            .dropdown
+              = image_tag 'actions.svg', class: 'dropbtn'
+              .dropdown-content.mini
+                編集
+                削除
+      = link_to board_path(board) do            
+        .card-body
+          %h4.card-title 
+            = truncate(board.title)
+          %p.card-text 
+            = truncate(board.content)  
 
 
 
