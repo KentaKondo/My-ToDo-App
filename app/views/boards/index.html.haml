@@ -2,11 +2,14 @@
   %h1 ALL Boards
   - @boards.each do |board|
     .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
-      .card-header Header
+      .card-header 
+        .text-right
+          %i.fas.fa-book
       .card-body
-        %h4.card-title Secondary card title
-        %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
-
+        %h4.card-title 
+          = board.title
+        %p.card-text 
+          = truncate(board.content)
 
 
 
