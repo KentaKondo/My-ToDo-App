@@ -1,16 +1,15 @@
 .container
   %h1 ALL Boards
   - @boards.each do |board|
-    .card_content
-      .card_title
-        = board.title
-        -# .card_heart
-        -#   = image_tag 'heart.svg'
-          %span= article.like_count
-        -# .card_detail
-        -#   = image_tag article.user.avatar_image
-          %div
-            %p= article.author_name
-            %p= article.display_created_at
+    .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
+      .card-header Header
+      .card-body
+        %h4.card-title Secondary card title
+        %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+
+
+
+
+
 
 

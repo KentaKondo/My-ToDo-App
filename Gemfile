@@ -25,6 +25,8 @@ gem 'devise'
 gem 'hamlit'
 gem 'sprockets', '~> 3.7.2'
 gem 'faker'
+
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
