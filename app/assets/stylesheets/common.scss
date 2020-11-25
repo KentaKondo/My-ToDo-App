@@ -16,13 +16,15 @@ border: none;
   display: none;
   right: 0;
   position: absolute;
-  background-color: rgb(19, 112, 233);
+  background-color: rgb(227, 230, 233);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
   &.mini {
-    min-width: 100px;
+    min-width: 70px;
+    text-align: center;
+    
   }
 }
 

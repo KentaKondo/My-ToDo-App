@@ -7,13 +7,13 @@
   - @boards.each do |board|
     .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
       .card-header 
+      -if user_signed_in? && current_user.has_written?(board)
         .text-right
           .article_detail_actions
             .dropdown
               = image_tag 'actions.svg', class: 'dropbtn'
               .dropdown-content.mini
-                編集
-                削除
+                = link_to 'Edit', edit_board_path(board)
       = link_to board_path(board) do            
         .card-body
           %h4.card-title 
