@@ -10,6 +10,7 @@
             = image_tag 'actions.svg', class: 'dropbtn'
             .dropdown-content.mini
               = link_to 'Edit', edit_board_path(@board)
+              = link_to 'Delete', board_path(@board), data: {method: 'delete', confirm: '本当に削除しても宜しいですか？' }
   %svg.d-block.user-select-none{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "200", :preserveaspectratio => "xMidYMid slice", :role => "img", :style => "font-size:1.125rem;text-anchor:middle", :viewbox => "0 0 318 180", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
     %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
     %text{:dy => ".3em", :fill => "#dee2e6", :x => "50%", :y => "50%"} Image cap
