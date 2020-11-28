@@ -1,9 +1,9 @@
 .container
-  %h1 NEW BOARD
+  %h1 NEW CARD
   %ul
-    - @board.errors.full_messages.each do |message|
+    - @task.errors.full_messages.each do |message|
       %li= message
-  = form_with(model: @board, local: true ) do |f|
+  = form_with(model: @task, url: board_tasks_path(@task.board), local: true ) do |f|
     -# %div
     -#   = f.file_field :eyecatch
     %div

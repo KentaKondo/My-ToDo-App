@@ -11,10 +11,22 @@
             .dropdown-content.mini
               = link_to 'Edit', edit_board_path(@board)
               = link_to 'Delete', board_path(@board), data: {method: 'delete', confirm: '本当に削除しても宜しいですか？' }
-  %svg.d-block.user-select-none{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "200", :preserveaspectratio => "xMidYMid slice", :role => "img", :style => "font-size:1.125rem;text-anchor:middle", :viewbox => "0 0 318 180", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
-    %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
-    %text{:dy => ".3em", :fill => "#dee2e6", :x => "50%", :y => "50%"} Image cap
+  -# %svg.d-block.user-select-none{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "200", :preserveaspectratio => "xMidYMid slice", :role => "img", :style => "font-size:1.125rem;text-anchor:middle", :viewbox => "0 0 318 180", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+  -#   %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+  -#   %text{:dy => ".3em", :fill => "#dee2e6", :x => "50%", :y => "50%"} Image cap
   .card-body
     %p.card-text 
       = @board.content
-
+= link_to new_board_task_path(@board) do
+  .card.border-info.mb-3{:style => "max-width: 20rem;"}
+    .card-body
+      ＋ Add New Card
+.task      
+  - @tasks.each do |task|
+    .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
+      .card-header 
+        .card-body
+          %h4.card-title 
+            = truncate(task.title)
+          %p.card-text 
+            = truncate(task.content)  
