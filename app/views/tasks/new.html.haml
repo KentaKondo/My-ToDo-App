@@ -4,10 +4,8 @@
     - @task.errors.full_messages.each do |message|
       %li= message
   = form_with(model: @task, url: board_tasks_path(@task.board), local: true ) do |f|
-    %div
-      = f.label :Eyecatch, 'eyecatch'  
-    %div
-      = f.file_field :eyecatch
+    -# %div
+    -#   = f.file_field :eyecatch
     %div
       = f.label :title, 'Title'
     %div
@@ -16,7 +14,7 @@
       = f.label :content, 'Content'
     %div
       = f.text_area :content, class:'content'
-    %div
+
     = f.hidden_field :user_id, value:current_user.id
     %div
       = f.submit '保存', class:'btn-primary'
