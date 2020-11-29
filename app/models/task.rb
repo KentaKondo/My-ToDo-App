@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
-  belongs_to :board
-  belongs_to :user
+  belongs_to :board, optional: true
+  belongs_to :user,  optional: true
 end
