@@ -11,6 +11,9 @@
             .dropdown-content.mini
               = link_to 'Edit', edit_board_path(@board)
               = link_to 'Delete', board_path(@board), data: {method: 'delete', confirm: '本当に削除しても宜しいですか？' }
+  .card-body
+    %p.card-text 
+      = @board.content            
 .container      
   = link_to new_board_task_path(@board) do
     .card.border-info.mb-3{:style => "max-width: 20rem;"}
@@ -20,7 +23,7 @@
   .card-task      
     - @tasks.each do |task|
       .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
-        = link_to board_task_path(board_id: @board, task_id: task) do
+        = link_to board_task_path(board_id: @board, id: task) do
           .card-header 
             -if task.eyecatch.attached?
               .card_img

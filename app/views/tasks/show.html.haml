@@ -1,19 +1,19 @@
 .container
   .card.mb-3
     .card-body
-      %h5.card-title
-        = @task.title
-      -if @task.eyecatch.attached?
-        .card_img
-          = image_tag @task.eyecatch, width: '100%', height: '100%'  
-      -if user_signed_in? && current_user.has_written?(@task)
+      -if user_signed_in? && current_user.task_has_written?(@task)
         .text-right
           .article_detail_actions
             .dropdown
               = image_tag 'actions.svg', class: 'dropbtn'
               .dropdown-content.mini
-                -# = link_to 'Edit', edit_board_path(@task)
-                -# = link_to 'Delete', board_path(@task), data: {method: 'delete', confirm: '本当に削除しても宜しいですか？' }
+                = link_to 'Edit', edit_board_task_path(board_id: @board, id: @task)
+                = link_to 'Delete', board_task_path(id: @task, board_id: @board), data: {method: 'delete', confirm: '本当に削除しても宜しいですか？' }  
+      %h5.card-title
+        = @task.title
+      -if @task.eyecatch.attached?
+        .card_img
+          = image_tag @task.eyecatch, width: '100%', height: '100%'  
     .card-body
       %p.card-text 
         = @task.content
