@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :boards, only: [:show, :new, :create, :edit, :update, :destroy]
   
   resources :board do
-    resources :tasks, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :tasks do
+      resources :comments, only: [:show,:new, :create]
+    end
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
