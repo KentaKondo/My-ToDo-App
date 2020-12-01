@@ -17,3 +17,18 @@
     .card-body
       %p.card-text 
         = @task.content
+.container    
+  %h1 Comments
+
+.container
+  .card-task      
+    - @comments.each do |comment|
+      .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
+        .card-body
+          = comment.content
+
+.container      
+  = link_to new_board_task_comment_path(board_id: @board, task_id: @task, id: @comment) do
+    .card.border-info.mb-3{:style => "max-width: 20rem;"}
+      .card-body
+        ＋ Add New Comment

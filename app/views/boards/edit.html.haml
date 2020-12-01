@@ -16,24 +16,3 @@
       = f.text_area :content, class:'content'
     %div
       = f.submit '保存', class:'btn-primary'
--# .container
--#   %ul
--#     - @board.errors.full_messages.each do |message|
--#       %li= message
--# = form_with(model: @board, local: true ) do |f|
--#   .card.mb-3
--#     .card-body
--#       %h5.card-title
--#         = @board.title
--#       .text-right
--#         .article_detail_actions
--#           .dropdown
--#             = image_tag 'actions.svg', class: 'dropbtn'
--#             .dropdown-content.mini
--#               削除
--#     %svg.d-block.user-select-none{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "200", :preserveaspectratio => "xMidYMid slice", :role => "img", :style => "font-size:1.125rem;text-anchor:middle", :viewbox => "0 0 318 180", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
--#       %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
--#       %text{:dy => ".3em", :fill => "#dee2e6", :x => "50%", :y => "50%"} Image cap
--#     .card-body
--#       %p.card-text 
--#         = @board.content
