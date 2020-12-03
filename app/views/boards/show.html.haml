@@ -33,3 +33,5 @@
                 = truncate(task.title)
               %p.card-text 
                 = truncate(task.content)  
+              .card_detail
+                = image_tag task.user.avatar_image    
