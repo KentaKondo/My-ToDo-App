@@ -27,6 +27,7 @@ gem 'sprockets', '~> 3.7.2'
 gem 'faker'
 gem 'font-awesome-sass'
 gem 'pry-rails'
+gem 'aws-sdk-s3', require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
