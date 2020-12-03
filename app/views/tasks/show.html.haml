@@ -17,6 +17,11 @@
     .card-body
       %p.card-text 
         = @task.content
+      .card_detail
+        = image_tag @task.user.avatar_image 
+      .card_heart    
+        = image_tag 'Shape.png'
+        %span= @task.comment_count   
 .container    
   %h1 Comments
 
@@ -26,6 +31,8 @@
       .card.bg-secondary.mb-3{:style => "max-width: 20rem;"}
         .card-body
           = comment.content
+        .card_detail
+          = image_tag comment.user.avatar_image  
 
 .container      
   = link_to new_board_task_comment_path(board_id: @board, task_id: @task, id: @comment) do

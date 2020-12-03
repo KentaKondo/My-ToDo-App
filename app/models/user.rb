@@ -17,6 +17,11 @@ class User < ApplicationRecord
     tasks.exists?(id: task.id)
   end
 
+  def author_name
+    user.display_name
+  end
+
+
   def prepare_profile
     profile || build_profile
   end

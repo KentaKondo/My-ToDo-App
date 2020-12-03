@@ -20,10 +20,11 @@
           %h4.card-title 
             = truncate(board.title)
           %p.card-text 
-            = truncate(board.content)  
-
-
-
-
+            = truncate(board.content)
+        .card_detail
+          = image_tag board.user.avatar_image  
+        -# .card_heart
+        -#   = image_tag 'Shape.png'
+        -#   %span= @task.comment_count
 
 
